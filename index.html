@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://unpkg.com; img-src 'self' data:; connect-src 'self' https://unpkg.com;">
     <title>Maria Luz Portillo - Portfolio Profesional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +45,7 @@
                     precisión operativa.
                 </p>
                 <div class="action-buttons">
-                    <a href="mailto:mdemello019@gmail.com" class="btn-primary">Contactarme</a>
+                    <a href="#" class="btn-primary email-link">Contactarme</a>
                     <a href="assets/CV_Maria_Luz_Portillo.pdf" download class="btn-secondary">Descargar CV</a>
                 </div>
             </div>
@@ -164,10 +166,13 @@
 
     <footer>
         <p>&copy; 2026 Maria Luz Portillo. | Creado por Alejandro Reginensi
-            <a href="https://github.com/alereginensi" target="_blank" aria-label="GitHub de Alejandro Reginensi"
+            <a href="https://github.com/alereginensi" target="_blank" rel="noopener noreferrer"
+                aria-label="GitHub de Alejandro Reginensi"
                 style="margin-left: 5px; vertical-align: middle; font-size: 1.2rem;">
                 <ion-icon name="logo-github"></ion-icon>
             </a>
+            <br><span style="font-size: 0.8em;">Contacto: <a href="#"
+                    class="email-link email-text-insert">Cargando...</a></span>
         </p>
     </footer>
 
@@ -176,47 +181,8 @@
         <ion-icon name="chevron-up-outline"></ion-icon>
     </button>
 
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('ion-icon');
-        const body = document.body;
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        // Check for saved user preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            icon.setAttribute('name', 'sunny-outline');
-        }
-
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-
-            if (body.classList.contains('dark-mode')) {
-                icon.setAttribute('name', 'sunny-outline');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.setAttribute('name', 'moon-outline');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Scroll to Top Logic
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    <!-- External Script for Security & Logic -->
+    <script src="script.js"></script>
 </body>
 
 </html>
