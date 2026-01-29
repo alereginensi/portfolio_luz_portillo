@@ -1,37 +1,44 @@
 :root {
     /* Fonts */
     --font-heading: 'Poppins', sans-serif;
+    --font-title: 'Corbel', sans-serif;
+    /* New font for Main Title */
     --font-body: 'Inter', sans-serif;
     --radius: 12px;
 
-    /* Colors */
-    --primary-dark: #73186a;
-    --bg-body: #ffffff;
-    /* Pure White for Light Mode */
+    /* Colors - Monochrome & Shading */
+    --primary-dark: #000000;
+    /* Deep Black for accents in Light Mode */
+    --bg-body: #f8f9fa;
+    /* Very subtle gray-white for depth */
     --bg-card: #ffffff;
-    --text-main: #333333;
-    --text-muted: #666666;
-    --accent: #2C3E50;
-    /* Neutral Accent (Dark Blue) instead of Teal */
+    --text-main: #1a1a1a;
+    /* Soft Black */
+    --text-muted: #555555;
+    --accent: #333333;
 
-    --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 15px 35px -10px rgba(0, 0, 0, 0.12);
-    --nav-bg: rgba(255, 255, 255, 0.95);
+    /* Enhanced Shading for Depth */
+    --shadow-soft: 0 10px 40px -5px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 50px -5px rgba(0, 0, 0, 0.15);
+    --border-subtle: 1px solid rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(255, 255, 255, 0.90);
 }
 
 body.dark-mode {
-    --primary-dark: #ecf0f1;
-    --bg-body: #1a1a1a;
-    /* Dark Grey for Dark Mode */
-    --bg-card: #2c2c2c;
-    --text-main: #f0f0f0;
-    --text-muted: #b0b0b0;
-    --accent: #ecf0f1;
-    /* Light Accent for Dark Mode */
+    --primary-dark: #ffffff;
+    /* White accents in Dark Mode */
+    --bg-body: #121212;
+    /* Deep Matte Black */
+    --bg-card: #1e1e1e;
+    /* Slightly lighter black for cards */
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent: #cccccc;
 
-    --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
-    --nav-bg: rgba(30, 30, 30, 0.95);
+    --shadow-soft: 0 10px 40px -5px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 20px 50px -5px rgba(0, 0, 0, 0.7);
+    --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(18, 18, 18, 0.90);
 }
 
 * {
@@ -97,7 +104,8 @@ h1,
 h2,
 h3 {
     font-family: var(--font-heading);
-    color: var(--primary-dark);
+    color: var(--text-main);
+    /* Removed color primary-dark, forcing monochrome */
 }
 
 a {
@@ -218,7 +226,10 @@ a {
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
+    font-family: var(--font-title);
+    /* CORBEL APPLIED HERE */
+    font-size: 4rem;
+    /* Slightly larger */
     margin-bottom: 0.5rem;
     letter-spacing: -1px;
 }
@@ -307,7 +318,8 @@ body.dark-mode .btn-primary:hover {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
-    color: var(--primary-dark);
+    color: var(--text-main);
+    /* Monochrome title */
 }
 
 .section-title::after {
@@ -326,6 +338,8 @@ body.dark-mode .btn-primary:hover {
     border-radius: var(--radius);
     padding: 2.5rem;
     box-shadow: var(--shadow-soft);
+    border: var(--border-subtle);
+    /* Added subtle border for shading detail */
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -482,44 +496,11 @@ footer a {
 }
 
 .scroll-top-btn:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--text-muted);
     transform: translateY(-5px);
 }
 
-/* Scroll to Top Button */
-.scroll-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--text-main);
-    color: var(--bg-body);
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-hover);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
 
-.scroll-top-btn.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-.scroll-top-btn:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-5px);
-}
 
 /* Animation */
 @keyframes fadeIn {
