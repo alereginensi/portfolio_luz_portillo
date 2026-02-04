@@ -224,6 +224,7 @@ a {
     height: 100%;
     object-fit: cover;
     object-position: top;
+    object-position: top;
 }
 
 .hero-text h1 {
